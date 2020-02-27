@@ -1,27 +1,31 @@
-import React,{Component} from 'react';
-import {Text,View} from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import axios from 'axios';
- 
-class CoinList extends Component{
- 
-    state = {coins: []};
- 
-    componentWillMount(){
+import CoinDetail from './coinDetail';
+
+class CoinList extends Component {
+    state = { coins: [] };
+
+    componentWillMount() {
         const url = 'https://benzneststudios.com/cryptostory/app/api/v1/get/sample';
-        axios.get(url)
-        .then(response => this.setState({coins:response.data}));
+        axios.get(url).then(response => {
+            this.setState({ coins: response.data })
+            console.log(response);
+        });
     }
 
-    rederCoin(){
-        return this.state.coins.map(data => <Text>{data.symbol}</Text>)
+    rederCoin() {
+        return this.state.coins.map(data => <CoinDetail coin={data} />);
     }
- 
-    render(){
-        console.log(response);
-        return(
+
+    render() {
+        return (
             <View>
                 {this.rederCoin()}
             </View>
         );
     }
 }
+
+// export to render
+export default CoinList;
