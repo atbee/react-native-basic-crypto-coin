@@ -25,10 +25,6 @@ CoinDetail.propTypes = {
     coin: propTypes.object
 };
 
-CoinDetail.defaultProps = {
-    symbol: 'athibet'
-}
-
 const coinDetailStyle = {
     containerMain: {
         flexDirection: 'row'
