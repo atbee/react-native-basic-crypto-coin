@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {View} from 'react-native';
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types';
 
 // init card component.
 const Card = (props)=>{
