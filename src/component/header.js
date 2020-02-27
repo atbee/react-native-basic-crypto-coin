@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
+import propTypes from 'prop-types';
 
 // style
 const headerStyle = {
@@ -21,16 +22,20 @@ const headerStyle = {
 };
 
 // init component
-const Header = () => {
-    const { viewStyle,textStyle } = headerStyle;
+const Header = (props) => {
+    const { viewStyle, textStyle } = headerStyle;
     return (
         <SafeAreaView>
             <View style={viewStyle}>
-                <Text style={textStyle}>My Header</Text>
+                <Text style={textStyle}>{props.headerText}</Text>
             </View>
         </SafeAreaView>
     );
 };
+
+Header.propTypes = {
+    headerText: propTypes.string
+}
 
 // export to render
 export default Header;
